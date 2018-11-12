@@ -5,8 +5,11 @@
  */
 
 //$('#one').text('Other staff');
+
+
 $(document).ready(function () {
     $('.td').click(function (e) {
         $(this).toggleClass('choosen');
+      $('#temp').text(this.id);
     });
 });
