@@ -49,3 +49,6 @@ function ai(b) {
         return 'only one';
     }
 }
+function reachability(){
+    return true;
+}
