@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-//$('#one').text('Other staff');
 
 var button;
 $(document).ready(function () {
@@ -39,8 +38,11 @@ function ai(b) {
            var table=new Table('mainTable');
            var button1=new Button(b);
            var button2=new Button(b1);
-           table.checkReachable(button1,button2);
-                  return 'yes it is what it is';
+       if( table.checkReachable(button1,button2)){
+           table.removeButtons(button1,button2);
+              return 'yes it is removable reachable OK';
+       }
+                  return 'yes not reachable YET!!!';
                   
        //check for reachability#/*
        /*

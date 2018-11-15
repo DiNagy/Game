@@ -46,13 +46,29 @@ function Table(name) {
 
 
     this.checkReachable = function (button1, button2) {
-          $('#aitemp').text(' button1: '+button1.idArray[0]+button1.idArray[1]+
-           ' button2: '+button2.idArray[0]+button2.idArray[1]      
-                );
-                 
-        /*
-        $('#aitemp').text($(tableNameTrTd).length + ' :' + this.tableButtons[0, 0].img
-                + ' :' + this.tableButtons[3, 3].img);
-                */
-    }
+        var isReachable=false;
+    //if next to each other left right
+    if (button1.idArray[0]===button2.idArray[0] &&
+         ( button1.idArray[1]===button2.idArray[1]+1 ||
+           button1.idArray[1]===button2.idArray[1]-1)){
+       isReachable=true;
+      
+           }
+        //if next to each other up and down
+          if (button1.idArray[1]===button2.idArray[1] &&
+         ( button1.idArray[0]===button2.idArray[0]+1 ||
+           button1.idArray[0]===button2.idArray[0]-1)){
+       isReachable=true;
+    
+           } 
+     
+      return isReachable;
+     
+    };
+    this.removeButtons=function(button1,button2){
+     var temp=   this.tableButtons[button1.idArray[0],button1.idArray[1]].img;
+    //img:  $(b).children(':first')
+    
+     $('#aitemp').html('<img src="'+temp+'">');
+    };
 }

@@ -16,7 +16,7 @@ div{
     padding:20px;
     background-color: grey;
 }
-.td img{
+.td img,img{
     width:45px;
     height:45px;
 }
