@@ -20,8 +20,9 @@ and open the template in the editor.
         ?>
         
         <div id="temp"></div>
-        
+        <div id="aitemp">Here Ai temp</div>
         <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/button.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

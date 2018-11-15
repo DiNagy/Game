@@ -18,7 +18,7 @@ $tempArray = ["pictures/ping.png",
     "pictures/cartoon-penguin-png-8.png"];
 shuffle($tempArray);
 $key = 0;
-echo '<table>';
+echo '<table id="mainTable">';
 for ($i = 0; $i < 4; $i++) {
     echo '<tr>';
     for ($j = 0; $j < 4; $j++) {
