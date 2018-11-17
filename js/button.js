@@ -16,6 +16,8 @@ function Button(button) {
     this.idArray = [parseInt(idArrayString[0]), parseInt(idArrayString[1])];
     //the picture or lack of it
     this.img = $(button).children(':first').attr('src');
+
+    this.isReachable = false;
 }
 
 function Table(name) {
@@ -30,6 +32,7 @@ function Table(name) {
     var numberOfRows = $(tableNameTr).length;
     var numberOfCells = Math.floor(tableCells.length / numberOfRows);
 
+
     //the matrix represents the table of the game
     //create the empty matrix
     this.tableButtons = new Array(numberOfRows);
@@ -41,34 +44,103 @@ function Table(name) {
     var tempButton;
     for (var i = 0; i < tableCells.length; i++) {
         tempButton = new Button((tableCells[i]));
-        this.tableButtons[tempButton.idArray[0], tempButton.idArray[1]] = tempButton;
+
+        if (tempButton.idArray[0] === 0 || tempButton.idArray[0] === 3
+                || tempButton.idArray[1] === 0 || tempButton.idArray[1] === 3
+                ) {
+            tempButton.isReachable = true;
+        }
+        this.tableButtons[tempButton.idArray[0]][ tempButton.idArray[1]] = tempButton;
+
     }
 
-
     this.checkReachable = function (button1, button2) {
-        var isReachable=false;
-    //if next to each other left right
-    if (button1.idArray[0]===button2.idArray[0] &&
-         ( button1.idArray[1]===button2.idArray[1]+1 ||
-           button1.idArray[1]===button2.idArray[1]-1)){
-       isReachable=true;
-      
-           }
+        var isReachable = false;
+        //if next to each other left right
+        if (button1.idArray[0] === button2.idArray[0] &&
+                (button1.idArray[1] === button2.idArray[1] + 1 ||
+                        button1.idArray[1] === button2.idArray[1] - 1)) {
+            isReachable = true;
+
+        }
         //if next to each other up and down
-          if (button1.idArray[1]===button2.idArray[1] &&
-         ( button1.idArray[0]===button2.idArray[0]+1 ||
-           button1.idArray[0]===button2.idArray[0]-1)){
-       isReachable=true;
-    
-           } 
-     
-      return isReachable;
-     
+        if (button1.idArray[1] === button2.idArray[1] &&
+                (button1.idArray[0] === button2.idArray[0] + 1 ||
+                        button1.idArray[0] === button2.idArray[0] - 1)) {
+            isReachable = true;
+
+        }
+        if ((this.tableButtons[button1.idArray[0]][button1.idArray[1]].isReachable) 
+                && (this.tableButtons[button2.idArray[0]][button2.idArray[1]]).isReachable) {
+            isReachable = true;
+        }
+
+        return isReachable;
+
     };
-    this.removeButtons=function(button1,button2){
-     var temp=   this.tableButtons[button1.idArray[0],button1.idArray[1]].img;
-    //img:  $(b).children(':first')
-    
-     $('#aitemp').html('<img src="'+temp+'">');
+    this.removeButtons = function (button1, button2) {
+        var tempButton1 = this.tableButtons[button1.idArray[0]][button1.idArray[1]];
+        var tempButton2 = this.tableButtons[button2.idArray[0]][button2.idArray[1]];
+        //img:  $(b).children(':first')
+
+        $('#aitemp').html('<img src="' + tempButton1.img + '">' + '<img src="'
+                + tempButton2.img + '">');
+        //
+
+        //    delete tempButton1.img;
+
+        //  delete tempButton2.img;
+
+        var tempIdImg1 = '#' + tempButton1.textId + ' img';
+        var tempIdImg2 = '#' + tempButton2.textId + ' img';
+
+        $('#aitemp').html('<img src="' + tempButton1.img + '">' + tempIdImg1 + '<img src="'
+                + tempButton2.img + '">');
+
+        $(tempIdImg1).remove();
+        $(tempIdImg2).remove();
+
+
+        this.reachChange(button1.idArray[0], button1.idArray[1]);
+        this.reachChange(button2.idArray[0], button2.idArray[1]);
+
+
+    };
+    this.reachChange = function (x, y) {
+        var temp;
+        var tempid;
+        var buttont;
+        if (x > 0) {
+            temp=x-1;
+            buttont= this.tableButtons[temp][y];
+            buttont.isReachable = true;
+           tempid='#'+temp+'_'+y;
+           $(tempid).addClass('background');
+           $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+        }
+        if (x < 3) {
+            temp=x+1;
+            buttont=     this.tableButtons[temp][y];
+                    buttont.isReachable = true;
+              tempid='#'+temp+'_'+y;
+           $(tempid).addClass('background');
+             $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+        }
+        if (y > 0) {
+            temp=y-1;
+            buttont=this.tableButtons[x][temp];
+                    buttont.isReachable = true;
+               tempid='#'+x+'_'+temp;
+           $(tempid).addClass('background');
+          $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+        }
+        if (y < 3) {
+            temp=y+1;
+            buttont=this.tableButtons[x][temp];
+                    buttont.isReachable = true;
+                tempid='#'+x+'_'+temp;
+           $(tempid).addClass('background');
+              $('#temp2').append('<img src="'+buttont.img+'">'+buttont.textId+buttont.isReachable);
+        }
     };
 }

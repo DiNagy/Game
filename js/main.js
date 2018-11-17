@@ -6,6 +6,7 @@
 
 
 var button;
+var table;
 $(document).ready(function () {
     $('.td').click(function (e) {
 
@@ -35,7 +36,9 @@ function ai(b) {
 
         if (img1 === img2) {
            // reachability(b1,b);
-           var table=new Table('mainTable');
+           if (!table){
+            table=new Table('mainTable');
+            }
            var button1=new Button(b);
            var button2=new Button(b1);
        if( table.checkReachable(button1,button2)){
@@ -43,15 +46,7 @@ function ai(b) {
               return 'yes it is removable reachable OK';
        }
                   return 'yes not reachable YET!!!';
-                  
-       //check for reachability#/*
-       /*
-       if (reachability(button,b)){
-            return 'yes it is what it is';
-        }
-        else {
-            return 'not reachable';
-        }*/
+     
         }
         //two cells have different pictures
         return 'not at all';
@@ -61,45 +56,4 @@ function ai(b) {
         $(button).addClass('choosen');
         return 'only one';
     }
-}
-function reachability(b1,b){
-    /**
-     * This is already tested, the two buttons are the same
-     */
-   //    $("aitemp").text(button.id+'OK'+b.id);
-    var id1=b1.id;
-    var id2=b.id;
-     var buttonArray1= id1.split('_');
-        var buttonArray2= id2.split('_');
-        buttonArray1[0]=parseInt(buttonArray1[0]);
-        buttonArray2[0]=parseInt(buttonArray2[0]);
-        
-      
-        buttonArray1[1]=parseInt(buttonArray1[1]);
-        buttonArray2[1]=parseInt(buttonArray2[1]);
-      if (buttonArray1[0]===buttonArray2[0])
-          
-              {  
-                  if (buttonArray1[1]===1+(buttonArray2[1]) || buttonArray1[1]===(buttonArray2[1])-1)
-                  {
-    $("#aitemp").text('next to each other1');
-                  }
-       
-      }
-       if (buttonArray1[1]===buttonArray2[1])
-          
-              {  
-                  if (buttonArray1[0]===1+(buttonArray2[0]) || buttonArray1[0]===(buttonArray2[0])-1)
-                  {
-    $("#aitemp").text('next to up and down');
-                  }
-       
-      }
-  //  if (id1===id2){
-   //     return false;
-  //  }
- 
-   
-   
-    return true;
 }
