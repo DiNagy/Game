@@ -70,6 +70,7 @@ function Table(name) {
             isReachable = true;
 
         }
+        //if both of them are reachable
         if ((this.tableButtons[button1.idArray[0]][button1.idArray[1]].isReachable) 
                 && (this.tableButtons[button2.idArray[0]][button2.idArray[1]]).isReachable) {
             isReachable = true;
@@ -78,24 +79,16 @@ function Table(name) {
         return isReachable;
 
     };
+    
+    
     this.removeButtons = function (button1, button2) {
         var tempButton1 = this.tableButtons[button1.idArray[0]][button1.idArray[1]];
         var tempButton2 = this.tableButtons[button2.idArray[0]][button2.idArray[1]];
-        //img:  $(b).children(':first')
 
-        $('#aitemp').html('<img src="' + tempButton1.img + '">' + '<img src="'
-                + tempButton2.img + '">');
-        //
-
-        //    delete tempButton1.img;
-
-        //  delete tempButton2.img;
-
+      
         var tempIdImg1 = '#' + tempButton1.textId + ' img';
         var tempIdImg2 = '#' + tempButton2.textId + ' img';
 
-        $('#aitemp').html('<img src="' + tempButton1.img + '">' + tempIdImg1 + '<img src="'
-                + tempButton2.img + '">');
 
         $(tempIdImg1).remove();
         $(tempIdImg2).remove();
@@ -107,40 +100,27 @@ function Table(name) {
 
     };
     this.reachChange = function (x, y) {
-        var temp;
-        var tempid;
-        var buttont;
+        
+       
         if (x > 0) {
-            temp=x-1;
-            buttont= this.tableButtons[temp][y];
-            buttont.isReachable = true;
-           tempid='#'+temp+'_'+y;
-           $(tempid).addClass('background');
-           $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+          
+          this.tableButtons[x-1][y].isReachable = true;
+      
         }
         if (x < 3) {
-            temp=x+1;
-            buttont=     this.tableButtons[temp][y];
-                    buttont.isReachable = true;
-              tempid='#'+temp+'_'+y;
-           $(tempid).addClass('background');
-             $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+          
+           this.tableButtons[x+1][y].isReachable = true;
+       
         }
         if (y > 0) {
-            temp=y-1;
-            buttont=this.tableButtons[x][temp];
-                    buttont.isReachable = true;
-               tempid='#'+x+'_'+temp;
-           $(tempid).addClass('background');
-          $('#temp2').append('<img src="'+buttont.img+'">'+buttont.isReachable);
+          
+           this.tableButtons[x][y-1].isReachable = true;
+           
         }
         if (y < 3) {
-            temp=y+1;
-            buttont=this.tableButtons[x][temp];
-                    buttont.isReachable = true;
-                tempid='#'+x+'_'+temp;
-           $(tempid).addClass('background');
-              $('#temp2').append('<img src="'+buttont.img+'">'+buttont.textId+buttont.isReachable);
+           
+           this.tableButtons[x][y+1].isReachable = true;
+                     
         }
     };
 }

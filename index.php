@@ -26,5 +26,6 @@ and open the template in the editor.
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/button.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/timer.js"></script>
     </body>
 </html>
