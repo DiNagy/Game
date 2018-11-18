@@ -19,10 +19,10 @@ function myTimer(){
     }
     timeClock.text(step+'%');
    //timeClock.css({height:step + "%"});
-   if (step<20){
+   if (step<10){
        timeClock.css({'backgroundColor':'rgb(230,0,0)',height:step + "%"});
    }
-   if (step>19){
+   if (step>9){
      //  timeClock.css({'backgroundColor':'blue',height:step + "%"});
      color="rgb("+(300-(step*5))+",0,"+(350-(step*2))+")";
      timeClock.css({'backgroundColor':color,height:step + "%",'color':'white'});
