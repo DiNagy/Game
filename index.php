@@ -21,11 +21,11 @@ and open the template in the editor.
         
         <div id="temp"></div>
         
-          <div id="temp2"></div>
-        <div id="aitemp">Here Ai temp</div>
+        
         <script src="js/jquery-3.3.1.min.js"></script>
+              <script src="js/timer.js"></script>
         <script src="js/button.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/timer.js"></script>
+  
     </body>
 </html>

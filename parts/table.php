@@ -1,3 +1,4 @@
+<div class="timer"><div class="clock" id="clock">100%</div></div>
 <?php
 
 $tempArray = ["pictures/ping.png",
@@ -29,3 +30,5 @@ for ($i = 0; $i < 4; $i++) {
 }
 
 echo '</tr></table>';
+
+?>

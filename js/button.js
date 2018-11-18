@@ -71,7 +71,7 @@ function Table(name) {
 
         }
         //if both of them are reachable
-        if ((this.tableButtons[button1.idArray[0]][button1.idArray[1]].isReachable) 
+        if ((this.tableButtons[button1.idArray[0]][button1.idArray[1]].isReachable)
                 && (this.tableButtons[button2.idArray[0]][button2.idArray[1]]).isReachable) {
             isReachable = true;
         }
@@ -79,13 +79,13 @@ function Table(name) {
         return isReachable;
 
     };
-    
-    
+
+
     this.removeButtons = function (button1, button2) {
         var tempButton1 = this.tableButtons[button1.idArray[0]][button1.idArray[1]];
         var tempButton2 = this.tableButtons[button2.idArray[0]][button2.idArray[1]];
 
-      
+
         var tempIdImg1 = '#' + tempButton1.textId + ' img';
         var tempIdImg2 = '#' + tempButton2.textId + ' img';
 
@@ -96,31 +96,33 @@ function Table(name) {
 
         this.reachChange(button1.idArray[0], button1.idArray[1]);
         this.reachChange(button2.idArray[0], button2.idArray[1]);
-
-
+        
+        if (step < 85) {
+            step = step + 15;
+        }
     };
     this.reachChange = function (x, y) {
-        
-       
+
+
         if (x > 0) {
-          
-          this.tableButtons[x-1][y].isReachable = true;
-      
+
+            this.tableButtons[x - 1][y].isReachable = true;
+
         }
         if (x < 3) {
-          
-           this.tableButtons[x+1][y].isReachable = true;
-       
+
+            this.tableButtons[x + 1][y].isReachable = true;
+
         }
         if (y > 0) {
-          
-           this.tableButtons[x][y-1].isReachable = true;
-           
+
+            this.tableButtons[x][y - 1].isReachable = true;
+
         }
         if (y < 3) {
-           
-           this.tableButtons[x][y+1].isReachable = true;
-                     
+
+            this.tableButtons[x][y + 1].isReachable = true;
+
         }
     };
 }
