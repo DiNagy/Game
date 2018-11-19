@@ -1,6 +1,6 @@
 <div class="timer"><div class="clock" id="clock">100%</div></div>
 <?php
-$tempArrayhalf = ["pictures/ping.png",
+$tempArrayhalfBig = ["pictures/ping.png",
     
     "pictures/110334logo1517426828.png",
     
@@ -15,25 +15,42 @@ $tempArrayhalf = ["pictures/ping.png",
     "pictures/penguin_dancing.png",
    
     "pictures/birthdayping.png",
+    
      "pictures/carfping.png",
+    
      "pictures/drumerping.png",
+    
      "pictures/hapyhatping.png",
     
     "pictures/smallscarfping.png",
+    
      "pictures/halping.png",
+    
      "pictures/swimping.png",
+    
      "pictures/sweetping.png",
     
      "pictures/realping.png",
+    
      "pictures/tinyping.png",
+    
      "pictures/tuxedoping.png",
+    
      "pictures/tux1.png",
+    
      "pictures/ghostping.png",
+    
      "pictures/chickenping.png",
+    
          "pictures/leftping.png",
+    
          "pictures/hatping.png",
+    
     "pictures/cartoon-penguin-png-8.png"];
 
+$tempArrayhalf=array_slice($tempArrayhalfBig,0,8);
+$rows=4;
+$columns=4;
 
 $tempArray=(array_merge($tempArrayhalf, $tempArrayhalf));
 
@@ -62,16 +79,16 @@ birthdayping--
  */
 shuffle($tempArray);
 $key = 0;
+echo '<div class="game">';
 echo '<table id="mainTable">';
-for ($i = 0; $i < 4; $i++) {
+for ($i = 0; $i < $rows; $i++) {
     echo '<tr>';
-    for ($j = 0; $j <4; $j++) {
+    for ($j = 0; $j < $columns; $j++) {
         echo '<td  id="'.$i.'_'.$j.'" class="td "><img  src=' . $tempArray[$key] . '></td>';
         $key++;
     }
     echo '</tr>';
 }
 
-echo '</tr></table>';
+echo '</tr></table></div>';
 
-?>

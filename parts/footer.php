@@ -1,8 +1,12 @@
 
-<div id="footer">
-<?php
+<footer>
 
-echo 'Copyright from 2013-'.date('YEAR');
 
-?>
-</div>
+    <small>
+        &copy  2013-
+        <?php echo date('Y');
+        ?>
+        Diana Nagy
+    </small>
+
+</footer>

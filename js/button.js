@@ -20,6 +20,7 @@ function Button(button) {
     this.isReachable = false;
 }
 
+
 function Table(name) {
     //creates the table of the game
     var tableNameTrTd = '#' + name + ' tr td';
@@ -30,8 +31,9 @@ function Table(name) {
 
     //number of rows and collumns   
     var numberOfRows = $(tableNameTr).length;
+  //  rows=numberOfRows;
     var numberOfCells = Math.floor(tableCells.length / numberOfRows);
-
+   //  columns=numberOfCells;
 
     //the matrix represents the table of the game
     //create the empty matrix
@@ -45,8 +47,8 @@ function Table(name) {
     for (var i = 0; i < tableCells.length; i++) {
         tempButton = new Button((tableCells[i]));
 
-        if (tempButton.idArray[0] === 0 || tempButton.idArray[0] === 3
-                || tempButton.idArray[1] === 0 || tempButton.idArray[1] === 3
+        if (tempButton.idArray[0] === 0 || tempButton.idArray[0] === (numberOfRows-1)
+                || tempButton.idArray[1] === 0 || tempButton.idArray[1] === (numberOfCells-1)
                 ) {
             tempButton.isReachable = true;
         }
@@ -90,8 +92,8 @@ function Table(name) {
         var tempIdImg2 = '#' + tempButton2.textId + ' img';
 
 
-        $(tempIdImg1).remove();
-        $(tempIdImg2).remove();
+        $(tempIdImg1).fadeOut('slow');
+        $(tempIdImg2).fadeOut('slow');
 
 
         this.reachChange(button1.idArray[0], button1.idArray[1]);
