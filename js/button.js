@@ -24,16 +24,18 @@ function Button(button) {
 function Table(name) {
     //creates the table of the game
     var tableNameTrTd = '#' + name + ' tr td';
+
     var tableNameTr = '#' + name + ' tr ';
+
 
     // the cells of the table
     var tableCells = $(tableNameTrTd);
 
     //number of rows and collumns   
     var numberOfRows = $(tableNameTr).length;
-  //  rows=numberOfRows;
+    //  rows=numberOfRows;
     var numberOfCells = Math.floor(tableCells.length / numberOfRows);
-   //  columns=numberOfCells;
+    //  columns=numberOfCells;
 
     //the matrix represents the table of the game
     //create the empty matrix
@@ -43,12 +45,14 @@ function Table(name) {
         this.tableButtons[i] = new Array(numberOfCells);
     }
     //fill up the matrix 
+    this.counting = tableCells.length;
+
     var tempButton;
     for (var i = 0; i < tableCells.length; i++) {
         tempButton = new Button((tableCells[i]));
 
-        if (tempButton.idArray[0] === 0 || tempButton.idArray[0] === (numberOfRows-1)
-                || tempButton.idArray[1] === 0 || tempButton.idArray[1] === (numberOfCells-1)
+        if (tempButton.idArray[0] === 0 || tempButton.idArray[0] === (numberOfRows - 1)
+                || tempButton.idArray[1] === 0 || tempButton.idArray[1] === (numberOfCells - 1)
                 ) {
             tempButton.isReachable = true;
         }
@@ -84,25 +88,56 @@ function Table(name) {
 
 
     this.removeButtons = function (button1, button2) {
+        //get the representation of the buttons from the matrix 
+
         var tempButton1 = this.tableButtons[button1.idArray[0]][button1.idArray[1]];
         var tempButton2 = this.tableButtons[button2.idArray[0]][button2.idArray[1]];
 
-
+        //get the images from the matrix
         var tempIdImg1 = '#' + tempButton1.textId + ' img';
         var tempIdImg2 = '#' + tempButton2.textId + ' img';
 
-
+        //remove the images from the DOM
         $(tempIdImg1).fadeOut('slow');
         $(tempIdImg2).fadeOut('slow');
 
-
+        //more buttons are now "reachable"
         this.reachChange(button1.idArray[0], button1.idArray[1]);
         this.reachChange(button2.idArray[0], button2.idArray[1]);
-        
-        if (step < 85) {
-            step = step + 15;
+        //
+
+
+
+          if (step < 85) {
+           step = step + 15;
+         }
+
+        //when this goes to 0 call "you won"        
+        this.counting -= 2;
+        $('#temp2').text('numver: ' + this.counting);
+
+
+        if (this.counting === 0) {
+            this.youWon();
         }
     };
+
+    this.youWon = function () {
+        var timeClock = $('#clock');
+        //no more steps
+        $('.td').unbind('click');
+        //change the display 
+        timeClock.text('YOU are the winer!');
+        timeClock.css({backgroundColor: 'pink'});
+        timeClock.animate({width: "80%"}, 'slow');
+        //stop the timer
+        clearInterval(myvar);
+
+
+
+
+    };
+
     this.reachChange = function (x, y) {
 
 
@@ -111,7 +146,7 @@ function Table(name) {
             this.tableButtons[x - 1][y].isReachable = true;
 
         }
-        if (x < 3) {
+        if (x < (numberOfRows - 1)) {
 
             this.tableButtons[x + 1][y].isReachable = true;
 
@@ -121,7 +156,7 @@ function Table(name) {
             this.tableButtons[x][y - 1].isReachable = true;
 
         }
-        if (y < 3) {
+        if (y < (numberOfCells - 1)) {
 
             this.tableButtons[x][y + 1].isReachable = true;
 

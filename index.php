@@ -10,17 +10,18 @@ and open the template in the editor.
         <title>Game on the move</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body
+    <body>
         <?php
-        require_once 'parts/header.php';
+        require 'parts/header.php';
 
-        require_once 'parts/table.php';
+        require 'php/CreateTable.php';
+        require 'parts/table.php';
 
-        require_once 'parts/footer.php';
+        require 'parts/footer.php';
         ?>
         
         <div id="temp"></div>
-        
+         <div id="temp2"></div>
         
         <script src="js/jquery-3.3.1.min.js"></script>
               <script src="js/timer.js"></script>

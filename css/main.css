@@ -8,17 +8,21 @@ and open the template in the editor.
     Author     : diana
 */
 
-
-div{
-    width:90%;
-    padding:20px;
+body{
     background-color: grey;
+}
+div{
+    width:100%;
+    padding:20px;
+ /*   background-color: grey;*/
 }
 .td img,img{
     width:45px;
     height:45px;
 }
-
+.game{
+    width: 90%;
+}
 .td{
     padding:5px;
     border:black solid 1px;
@@ -30,41 +34,50 @@ div{
 .td:hover{
     opacity: 0.5;
 }
+table {
+    margin-left:auto;
+    margin-right: auto;
+
+ /*   margin-right: 200px;*/
+}
 
 .chosen{
     border:solid red 1px;
     background-color: lightsteelblue;
 }
 .timer{
-    position:absolute;
-      top: 70px;
-    right: 15px;
+  /*  position:absolute;
+     top: 70px;
+    right: 15px;*/
     margin-right: 20px;
     margin-top:20px;
-    width:70px;
-    height:150px;
+    max-width:80%;
+   padding:5px;
     border:solid black 2px;
     border-radius: 10px;
     background-color: whitesmoke;
   text-align: center;
-  
+  margin-left:auto;
+  margin-right:auto;
     overflow: hidden;
  /*   padding:-5px;*/
 
 }
 .timer .clock{
     position:relative;
-   margin-left:-20px;
+ /*  margin-left:-20px;
    margin-top:-20px;
-   width:70px;
-       
+   width:70px;*/
+      margin-left:auto;
+     margin-right: auto;
         background-color: white;
           text-align: center;
-    
-  height: 25%;    
+    border-radius: 5px;
+  width: 25%;    
           
 
 }
+    
 footer{
     padding:50px;
     background-color: grey;
@@ -72,21 +85,23 @@ footer{
     margin-top: 50px;
     
 }
-.header{
- /*display :inline-block;*/
- /*width:100%;*/
-   background-color: pink;
+nav{
+/* display :inline-block;*/
+ width:100%;
+   background-color: black;
+   border:2px solid darkgrey;
    color:whitesmoke;
-   padding-top: 5px;
-   padding-bottom: 2em;
+    padding-bottom: 2em;
+  border-radius: 5px;
  /*  clear:both;*/
 }
 
 
-.header ul li{
+nav ul li{
   
-    float :left;
-    margin-left: 50px;
-    text-decoration: none;
+   float :left;
+   margin-left: 10%;
+   
+  /*  text-decoration: none;*/
     list-style: none;
 }

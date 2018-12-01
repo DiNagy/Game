@@ -1,7 +1,7 @@
-<div class="header">
+<nav>
     <ul>
         <li>Help +ikon</li>
         <li>Play Game +ikon</li>
     </ul>
     
-</div>
+</nav>
