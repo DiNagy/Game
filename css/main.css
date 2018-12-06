@@ -16,9 +16,14 @@ div{
     padding:20px;
  /*   background-color: grey;*/
 }
-.td img,img{
+.td img[src*='Giraffe']{
     width:45px;
-    height:45px;
+    height:75px;
+  /* height:90px;*/
+}
+.td img{
+    width:45px;
+    height: 45px;
 }
 .game{
     width: 90%;
