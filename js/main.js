@@ -8,12 +8,25 @@
 var button;
 var table;
 $(document).ready(function () {
+    //this only for index.php
+    //********************************
+
+$('label').click(function() {
+      
+       $(this).prev().trigger('click');
+  
+});
+  //this only for game 
+  //*********************************
+  
+    
     $('.td').click(function (e) {
 
         $('#temp').text(this.id + ' ' + ai(this));
         
          var inner = $('#inner');
-  
+         
+
   reduceHeight(inner, 20);
 
     });
