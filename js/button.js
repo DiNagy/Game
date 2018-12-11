@@ -33,9 +33,9 @@ function Table(name) {
 
     //number of rows and collumns   
     var numberOfRows = $(tableNameTr).length;
-    //  rows=numberOfRows;
+   
     var numberOfCells = Math.floor(tableCells.length / numberOfRows);
-    //  columns=numberOfCells;
+   
 
     //the matrix represents the table of the game
     //create the empty matrix
@@ -62,7 +62,7 @@ function Table(name) {
 
     this.checkReachable = function (button1, button2) {
         var isReachable = false;
-        //if next to each other left right
+        //if next to each other left and right
         if (button1.idArray[0] === button2.idArray[0] &&
                 (button1.idArray[1] === button2.idArray[1] + 1 ||
                         button1.idArray[1] === button2.idArray[1] - 1)) {
@@ -107,15 +107,13 @@ function Table(name) {
         //
 
 
-
+        //the timer never goes above 100%
           if (step < 85) {
            step = step + 15;
          }
 
         //when this goes to 0 call "you won"        
         this.counting -= 2;
-        $('#temp2').text('numver: ' + this.counting);
-
 
         if (this.counting === 0) {
             this.youWon();
@@ -139,8 +137,8 @@ function Table(name) {
     };
 
     this.reachChange = function (x, y) {
-
-
+    //when a "button" is removed the buttons next to it
+    //are reachable 
         if (x > 0) {
 
             this.tableButtons[x - 1][y].isReachable = true;

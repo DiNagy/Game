@@ -5,7 +5,7 @@ class CreateTable {
     
     private $rows, $columns;
 
-//set the $type here
+//set the $type and $mode  here
     public function __construct() {
 
         $mode = $_GET['mode'] ?? 25;
@@ -15,6 +15,7 @@ class CreateTable {
      $this->setArray($type);
     }
    private function setArray($type){
+     //choose the pictures for the table   
        $tableBase=new TableBase();
           switch ($type){
             case 'animal':
@@ -37,6 +38,7 @@ class CreateTable {
    } 
     
 private function setRowColumn($mode){
+    //set the number of rows and columns 
     switch ($mode) {
             case 1:
                 $this->rows = 4;
@@ -52,6 +54,8 @@ private function setRowColumn($mode){
         }
 }
     public function getArray($type) {
+        //cut shorter or double the number of pictures
+        //the size of table -> the length of the array of pictures
       $tempArray=$type;
         if (($this->rows * $this->columns) > (count($tempArray) )) {
      
@@ -69,7 +73,8 @@ private function setRowColumn($mode){
     }
 
     public function toHTML() {
-     //   $tempArray = $this->getArray();
+     //  display the table and the timer
+     //   
         $key = 0;
         echo '<div class="game">';
         echo '<div class="timer"><div class="clock" id="clock">25%</div></div>';

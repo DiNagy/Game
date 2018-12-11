@@ -1,25 +1,15 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 12-Nov-2018, 20:51:51
-    Author     : diana
-*/
+
 
 body{
     background-color: grey;
 }
 div{
-    width:100%;
+ 
     padding:20px;
-    /*   background-color: grey;*/
 }
 .td img[src*='Giraffe']{
     width:45px;
     height:75px;
-    /* height:90px;*/
 }
 .td img,img{
     width:45px;
@@ -36,7 +26,6 @@ div{
     padding:5px;
     border:black solid 1px;
     border-radius: 3px;
-    /*    background-color: white;*/
     width:47px;
     height:47px;
 }
@@ -46,8 +35,6 @@ div{
 table {
     margin-left:auto;
     margin-right: auto;
-
-    /*   margin-right: 200px;*/
 }
 
 .chosen{
@@ -55,9 +42,6 @@ table {
     background-color: lightsteelblue;
 }
 .timer{
-    /*  position:absolute;
-       top: 70px;
-      right: 15px;*/
     margin-right: 20px;
     margin-top:20px;
     max-width:80%;
@@ -69,22 +53,16 @@ table {
     margin-left:auto;
     margin-right:auto;
     overflow: hidden;
-    /*   padding:-5px;*/
 
 }
 .timer .clock{
     position:relative;
-    /*  margin-left:-20px;
-      margin-top:-20px;
-      width:70px;*/
     margin-left:auto;
     margin-right: auto;
     background-color: white;
     text-align: center;
     border-radius: 5px;
     width: 25%;    
-
-
 }
 
 footer{
@@ -92,17 +70,14 @@ footer{
     background-color: grey;
     text-align: center;
     margin-top: 50px;
-
 }
 nav{
-    /* display :inline-block;*/
     width:100%;
     background-color: black;
     border:2px solid darkgrey;
     color:whitesmoke;
     padding-bottom: 2em;
     border-radius: 5px;
-    /*  clear:both;*/
 }
 
 
@@ -118,9 +93,6 @@ nav ul li a{
     text-decoration: none;
 }
 
-.start{
-
-}
 
 input[type=radio] + label {
     padding:5px;  
@@ -128,17 +100,14 @@ input[type=radio] + label {
     background-color: lightslategray;
     border-bottom: 1px solid black;
     border-right:1px solid black;
-
 } 
 
 input[type=radio]:checked + label {
     padding:5px;
     background-color: green;
-
 } 
 .formpart label{
-    display: inline-block;
-  
+    display: inline-block; 
     margin-right: 3%;
     box-shadow: 2px 2px 2px darkslategrey;
 }
@@ -150,7 +119,6 @@ input[type=radio]:checked + label {
 }
 .formpart{
     text-align: center;
-
     padding:5px;
 }
 button{

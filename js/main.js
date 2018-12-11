@@ -22,8 +22,8 @@ $('label').click(function() {
     
     $('.td').click(function (e) {
 
-        $('#temp').text(this.id + ' ' + ai(this));
-        
+     //   $('#temp').text(this.id + ' ' + ai(this));
+        ai(this);
          var inner = $('#inner');
          
 
